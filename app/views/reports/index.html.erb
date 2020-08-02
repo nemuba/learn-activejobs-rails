@@ -1,0 +1,18 @@
+<% if flash[:notice] %>
+  <b style="color: green"><%= flash[:notice] %></b>
+<% end %>
+
+<h3>Relatórios</h3>
+
+<div class="reports">
+  <%= render partial: 'report', collection: @reports %>
+</div>
+<br>
+
+<%= link_to 'reload', reports_path, remote: true %>
+
+<hr>
+
+<%= form_tag("/reports", method: "post") do %>
+  <%= submit_tag("Gerar Novo") %>
+<% end %>
