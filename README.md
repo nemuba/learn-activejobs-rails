@@ -1,24 +1,43 @@
-# README
+# Dominando o Active Jobs do rails
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Mini curso de active-jobs ministrado pela [onebitcode.com](https://www.onebitcode.com).
 
-Things you may want to cover:
+Ferramentas utilizadas:
 
-* Ruby version
+* Ruby on Rails
 
-* System dependencies
+* Sqlite3
 
-* Configuration
+* Redis
 
-* Database creation
+* Sidekiq
 
-* Database initialization
+Para rodar o projeto basta:
 
-* How to run the test suite
+* instalar o redis na sua maquina(geralmente usando docker).
 
-* Services (job queues, cache servers, search engines, etc.)
+* rodar o comando bundle install para instalar as gems: 
 
-* Deployment instructions
+```sh
+bundle install
+```
 
-* ...
+* logo em seguida subir o projeto:
+
+```sh
+rails server
+```
+
+* subir o servidor do redis (caso tenha subido um docker separado nem será preciso desse comando):
+
+```sh
+redis-server
+```
+
+* e por fim subir o sidekiq:
+
+```sh
+bundle exec sidekiq -q reports -c 3
+```
+
+e bons estudos!
